@@ -1,0 +1,115 @@
+.post {
+  margin-top: -1.25rem;
+}
+.spe{
+  margin-left: .3rem;
+}
+article {
+  width: 50%;
+  /* border: solid 0.3rem red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  margin-left: 9rem;
+  padding-left: 0.7rem;
+  border-left: solid 0.3rem red;
+  cursor: pointer;
+}
+
+article:hover {
+  border-left-color: purple;
+}
+
+.post h2 {
+  background: purple;
+  color: white;
+  padding: 1rem 9rem;
+}
+.postForm {
+  position: fixed;
+  bottom: 6rem;
+  right: 0.7rem;
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  width: 30%;
+  background: purple;
+  color: white;
+}
+
+.postForm div {
+  margin-bottom: 1rem;
+}
+
+input,
+textarea {
+  width: 90%;
+  /* margin-top: 0.4rem; */
+  
+  margin: 0.4rem ;
+  padding: 0.5rem;
+  border-radius: 0.3rem 0 0.3rem 0;
+  border: none;
+}
+textarea {
+  min-width: 90%;
+  max-width: 90%;
+}
+input:focus,
+textarea:focus {
+  border-radius: 0 0.3rem 0 0.3rem;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.4rem 1.3rem;
+  border-radius: 0.3rem;
+  color: purple;
+  font-weight: bolder;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-btn {
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: purple;
+  color: white;
+}
+.fa {
+ margin: -0.5rem;
+}
+button:hover {
+  transform: scale(0.95);
+}
+.plus-money {
+ position: fixed;
+ bottom: 1.5rem;
+ right: 1.5rem;
+}
+.cancelbtn, .del{
+  text-align: center;
+margin-left: 1rem;
+}
+
+.cancelbtn .fa,  .del .fa{
+  font-size: 1rem;
+margin-right: 0.1rem;
+}
+.del {
+  padding: 0.9rem;
+  color: red;
+}
+.edit {
+  color: white;
+  background: purple;
+}
+.error{
+  padding-top: -2rem;
+  margin-left: 0.3rem;
+}

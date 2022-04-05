@@ -1,0 +1,82 @@
+<div class="post">
+  <h2>ALL POSTS</h2>
+  <div style="text-align: center; font-size: 3rem" *ngIf="posts.length <= 0">
+    <p >No Available Post</p>
+    <p>Click the below icon to create a new post</p>
+  </div>
+  <article *ngFor="let post of posts">
+    <div>
+      <h3>{{ post.header | uppercase }}</h3>
+      <p>{{ post.body }}</p>
+    </div>
+
+    <div>
+      <button
+        (click)="
+          editPosts(post._id, { postHeader: post.header, postBody: post.body })
+        "
+        class="del edit"
+      >
+        <i class="fa fa-edit"></i> Edit
+      </button>
+      <button (click)="deletePost(post._id)" class="del">
+        <i class="fa fa-trash"></i> delete
+      </button>
+    </div>
+  </article>
+</div>
+
+<form
+  *ngIf="showForm"
+  class="postForm"
+  (ngSubmit)="onSubmit(postForm.value); postForm.resetForm()"
+  #postForm="ngForm"
+>
+  <h3 class="spe">ADD A POST</h3>
+  <div>
+    <label class="spe" for="postHeader">Post Header</label> <br />
+    <input
+      minlength="4"
+      id="postHeader"
+      type="text"
+      placeholder="Enter Header..."
+      required
+      [(ngModel)]="postHeader"
+      name="header"
+      #header="ngModel"
+    />
+    <small *ngIf="header.invalid && header.touched" class="error"
+      >Header must contain atleast 4 characters.</small
+    >
+  </div>
+  <div>
+    <label class="spe" for="postBody">Post Body</label> <br />
+    <textarea
+      required
+      minlength="10"
+      rows="10"
+      cols="50"
+      id="postBody"
+      placeholder="Enter Body..."
+      required
+      [(ngModel)]="postBody"
+      name="body"
+      #body="ngModel"
+    ></textarea>
+    <small *ngIf="body.invalid && body.touched" class="error"
+      >Body must contain atleast 4 characters.</small
+    >
+  </div>
+  <button [disabled]="postForm.invalid" class="spe" type="submit">
+    {{ isEdit ? "Edit" : "Add" }} Post
+  </button>
+  <button class="cancelbtn" (click)="openForm()">
+    <i class="fa fa-times" aria-hidden="true"></i> Cancel
+  </button>
+</form>
+<div class="plus-money" (click)="openForm()">
+  {{ showForm ? "Hide " : "Show " }}Form<button class="add-btn">
+    <i *ngIf="showForm" class="fa fa-minus" aria-hidden="true"></i>
+    <i *ngIf="!showForm" class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+</div>
